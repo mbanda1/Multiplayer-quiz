@@ -1,0 +1,34 @@
+{
+  "name": "fastfy-node-epic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js | pino-pretty",
+    "dev": "npm run setup:db && nodemon index.js",
+    "migrate:tables": "node ./db/migrations/games-tables.js",
+    "reset:db": "node ./db/migrations/reset-db.js",
+    "setup:db": "npm run reset:db && npm run migrate:tables"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "^5.8.0",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.24.2",
+    "pg": "^8.11.3",
+    "pino": "^8.16.2",
+    "pino-pretty": "^10.2.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "eslint": "^8.51.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "nodemon": "^3.0.1"
+  }
+}
