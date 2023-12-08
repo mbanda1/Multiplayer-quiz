@@ -20,7 +20,8 @@
     "fastify": "^4.24.2",
     "pg": "^8.11.3",
     "pino": "^8.16.2",
-    "pino-pretty": "^10.2.3"
+    "pino-pretty": "^10.2.3",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.0",
