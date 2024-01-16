@@ -1,4 +1,4 @@
-import { pool } from '../index.mjs';
+import { getClient } from '../index.mjs';
 
 const resetDatabase = async () => {
     const resetProcedure = `
@@ -16,7 +16,9 @@ const resetDatabase = async () => {
   
     
     try {
-      await pool.query(resetProcedure);
+     const client = await getClient();
+     await client.query(resetProcedure);
+     client.release();
       console.log('All tables dropped successfully.');
     } catch (error) {
       console.error('Error dropping tables:', error);

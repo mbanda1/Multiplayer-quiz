@@ -1,4 +1,4 @@
-import { pool } from '../index.mjs';
+import { getClient } from '../index.mjs';
 
 const createTables = async () => {
   const createTablesQuery = `
@@ -21,8 +21,11 @@ const createTables = async () => {
 
 
   try {
-    await pool.query(createTablesQuery);
-    await pool.query(seedDataQuery);
+    const client = await getClient();
+
+    await client.query(createTablesQuery);
+    await client.query(seedDataQuery);
+    client.release();
 
     console.log('Tables created and seeded.');
   } catch (error) {

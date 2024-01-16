@@ -13,7 +13,6 @@ const pool = new Pool({
   port: process.env.PORT,
 });
 
-const client = await pool.connect();
+const getClient = async () => pool.connect();
 
-
-export { pool, client };
+export { pool, getClient };

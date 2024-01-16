@@ -1,5 +1,5 @@
 import { logger } from '../schemas/constants.js';
-import { client } from './index.mjs';
+import { getClient } from './index.mjs';
 
 const dbFields = `
   games.id,
@@ -12,10 +12,11 @@ export const insertGameDB = async (data) => {
 
   const query = 'INSERT INTO games (id, players, type, details) VALUES ($1, $2, $3, $4)';
 
+  const client = await getClient();
   try {
     await client.query(query, [data.id, data.players, data.type, data.details]);
     logger.info('Game inserted')
-  } catch(error) {
+  } catch (error) {
     logger.error(`Error inserting data into DB, ${error}`)
   }
   finally {
@@ -35,6 +36,7 @@ export const getGamesDB = async (filterParams) => {
               FROM games
               WHERE 1 = 1 ${conditions}`;
 
+  const client = await getClient();
   try {
     const result = await client.query(query, values);
     logger.info('Fetched games from DB')
@@ -60,6 +62,7 @@ export const getGameDB = async (id) => {
               FROM games
               WHERE id = $1`;
 
+  const client = await getClient();
   try {
     const result = await client.query(query, [id]);
     logger.info('Fetched game from DB by id')
