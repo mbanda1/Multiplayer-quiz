@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "nodemon index.js | pino-pretty",
+    "debug": "nodemon --inspect index.js | pino-pretty",
+    "profile": "node --prof index | pino-pretty",
     "dev": "npm run setup:db && nodemon index.js",
     "migrate:tables": "node ./db/migrations/games-tables.js",
     "reset:db": "node ./db/migrations/reset-db.js",
