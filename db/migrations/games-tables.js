@@ -7,7 +7,7 @@ const createTables = async () => {
       players INTEGER,
       type VARCHAR(36) CHECK (type IN ('indoor', 'field', 'road')),
       details TEXT,
-      created_at TIMESTAMPTZ DEFAULT NOW()
+      createdAt TIMESTAMPTZ DEFAULT NOW()
     );
   `;
 

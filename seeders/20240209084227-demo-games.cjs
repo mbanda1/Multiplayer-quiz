@@ -10,7 +10,7 @@ module.exports = {
         players: 3,
         type: 'indoor',
         details: 'indoor',
-        created_at: new Date(),
+        createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
@@ -18,7 +18,7 @@ module.exports = {
         players: 4,
         type: 'road',
         details: 'road',
-        created_at: new Date(),
+        createdAt: new Date(),
         updatedAt: new Date(),
       }
     ], {})
