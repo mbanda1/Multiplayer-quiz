@@ -19,7 +19,7 @@ export default (sequelize, DataTypes) => {
     details: DataTypes.TEXT
   }, {
     sequelize,
-    modelName: 'GamesOrm',
+    modelName: 'gamesOrms',
   });
   return GamesOrm;
 };

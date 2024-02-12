@@ -3,7 +3,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('gamesOrm', {
+    await queryInterface.createTable('gamesOrms', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -30,12 +30,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    },  {
-      tableName: 'gamesOrm' // Explicitly specify the table name
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('gamesOrm');
+    await queryInterface.dropTable('gamesOrms');
   }
 };

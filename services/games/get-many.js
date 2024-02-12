@@ -6,8 +6,7 @@ export const getGamesService = async (filters) => getGamesDB(filters);
 export const getGamesServiceByOrm = async () => {
     try {
         const games = await getGamesOrm();
-        console.log({xxx:games})
-        return games
+        return games[0]
     } catch (error) {
         console.log(error)
     }

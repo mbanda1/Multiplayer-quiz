@@ -10,16 +10,17 @@ const routes = function (fastify, options, next) {
                 type: 'object',
                 additionalProperties: false,
                 properties: {
-                    players: { type: 'number', minLength: 2},
+                    id: { type: 'number', minLength: 1},
+                    players: { type: 'number', minLength: 1},
                     type: { type: 'string', enum: TypesValues },
                 },
             },
         },
         handler: async (request, reply) => {
             const { filter } = request.query;
-            const { games } = await getGamesServiceByOrm(filter);
+            const { dataValues } = await getGamesServiceByOrm(filter);
 
-            reply.send(games);
+            reply.send(dataValues);
         }
     })
     next()
